@@ -9,6 +9,10 @@ class FolderList extends Component {
     list: propTypes.object
   }
 
+  toggle = () =>{
+    console.log(1)
+  }
+
   nodes = (data) =>{  
     let childNode;
     if(data.status){
@@ -23,11 +27,13 @@ class FolderList extends Component {
     return (
       <ul>
         <li>
-          <div className="title">
+          <div className="title a" onClick={this.toggle}>
             <i className="iconfont">&#xe619;</i>
             <span>{this.props.list.title}</span>
           </div>
-          {this.nodes(this.props.list)}
+          <div className="childnode">
+            {this.nodes(this.props.list)}
+          </div>
         </li>
       </ul>
     );

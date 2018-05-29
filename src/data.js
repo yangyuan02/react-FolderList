@@ -9,7 +9,13 @@
                 children:[
                     {
                         title:"父级1-子级1-子子级1",
-                        status:false
+                        status:true,
+                        children:[
+                            {
+                                title:"父级1-子级1-子子子1",
+                                status:false
+                            }
+                        ]
                     },
                     {
                         title:"父级1-子级1-子子级2",
