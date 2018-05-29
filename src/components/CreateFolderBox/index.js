@@ -10,7 +10,8 @@ import './index.less'
 class CreateFolderBox extends Component {
     
     static propTypes = {
-        showMark : propTypes.bool.isRequired,
+        showMark: propTypes.bool.isRequired,
+        closeMarkCallBack: propTypes.func
     }
 
     confirm = () =>{
@@ -18,6 +19,7 @@ class CreateFolderBox extends Component {
     }
 
     cencel = () =>{
+        this.props.closeMarkCallBack()
         console.log("取消")
     }
 

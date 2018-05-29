@@ -7,7 +7,7 @@ import './index.less'
 class MarkTemplate extends Component {
     
     static propTypes = {
-        showMark : propTypes.bool.isRequired,
+        showMark: propTypes.bool.isRequired
       }
 
     render(){

@@ -20,7 +20,7 @@ class App extends Component {
 
   add = () => {
     this.setState({
-      showMark : true
+      showMark : !this.state.showMark
     })
   }
 
@@ -33,7 +33,7 @@ class App extends Component {
           <FolderList list={tree} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} />
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} />
       </div>
     );
   }
