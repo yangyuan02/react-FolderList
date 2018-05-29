@@ -15,8 +15,9 @@ class App extends Component {
   render() {
     return (
       <div className="box">
-        <TouchableOpacity clickCallBack={this.add} text="创建" className="add" />
+        {/* <TouchableOpacity clickCallBack={this.add} text="创建" className="add" /> */}
         <div className="folderList">
+          <FolderList list={tree} />
           <FolderList list={tree} />
         </div>
       </div>

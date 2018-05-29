@@ -8,9 +8,13 @@ class FolderList extends Component {
   static propTypes = {
     list: propTypes.object
   }
-
-  toggle = () =>{
-    console.log(1)
+  state = {
+    visible : this.props.list.status
+  }
+  toggle = () => {
+    this.setState({
+      visible : !this.state.visible
+    })
   }
 
   nodes = (data) =>{  
@@ -24,14 +28,17 @@ class FolderList extends Component {
   }
 
   render() {
+    var style = {
+      display:this.state.visible?'none':'block'
+    }
     return (
       <ul>
         <li>
-          <div className="title a" onClick={this.toggle}>
+          <div className="title" onClick={this.toggle}>
             <i className="iconfont">&#xe619;</i>
             <span>{this.props.list.title}</span>
           </div>
-          <div className="childnode">
+          <div className="childnode" style={style}>
             {this.nodes(this.props.list)}
           </div>
         </li>
