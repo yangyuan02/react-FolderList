@@ -9,10 +9,6 @@ class FolderList extends Component {
     list: propTypes.object
   }
 
-  state = {
-    visible: true
-  }
-
   render() {
 
     return (
@@ -65,7 +61,7 @@ class FolderList extends Component {
         </li>
       </ul>
     );
-    
+
   }
 }
 
