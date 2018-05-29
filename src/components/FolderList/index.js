@@ -9,55 +9,25 @@ class FolderList extends Component {
     list: propTypes.object
   }
 
-  render() {
+  nodes = (data) =>{  
+    let childNode;
+    if(data.status){
+      childNode = data.children.map((node,index) => {
+        return <FolderList list={node} key={index} />
+      })
+    }
+    return childNode
+  }
 
+  render() {
     return (
       <ul>
         <li>
           <div className="title">
             <i className="iconfont">&#xe619;</i>
-            <span>我的文件夹</span>
+            <span>{this.props.list.title}</span>
           </div>
-          <ul>
-            <li>
-              <div className="title">
-                <i className="iconfont">&#xe619;</i>
-                <span>我是子文件夹</span>
-              </div>
-              <ul>
-                <li>
-                  <div className="title">
-                    <i className="iconfont">&#xe619;</i>
-                    <span>我的文件夹</span>
-                  </div>
-                </li>
-                <li>
-                  <div className="title">
-                    <i className="iconfont">&#xe619;</i>
-                    <span>我的文件夹</span>
-                  </div>
-                  <ul>
-                    <li>
-                      <div className="title">
-                        <i className="iconfont">&#xe619;</i>
-                        <span>我的文件夹</span>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <div className="title">
-                <i className="iconfont">&#xe619;</i>
-                <span>我是子文件夹</span>
-              </div>
-              <div className="title">
-                <i className="iconfont">&#xe619;</i>
-                <span>我是子文件夹</span>
-              </div>
-            </li>
-          </ul>
+          {this.nodes(this.props.list)}
         </li>
       </ul>
     );
