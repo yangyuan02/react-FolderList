@@ -6,6 +6,8 @@ import FolderList from './components/FolderList/index'
 
 import MarkTemplate from './components/MarkTemplate/index'
 
+import CreateFolderBox from './components/CreateFolderBox/index'
+
 import { tree } from './data.js'
 
 import './reset.css'
@@ -30,7 +32,8 @@ class App extends Component {
           <FolderList list={tree} />
           <FolderList list={tree} />
         </div>
-        <MarkTemplate showMark={this.state.showMark}/>
+        <MarkTemplate showMark={this.state.showMark} />
+        <CreateFolderBox showMark={this.state.showMark} />
       </div>
     );
   }

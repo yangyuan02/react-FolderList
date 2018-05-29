@@ -18,7 +18,7 @@ export default class TouchableOpacity extends Component{
 
     render(){
         return (
-            <div className={this.props.className} onClick={this.handleClick} ref='btn'>{this.props.text||'确认'}</div>
+            <div className={this.props.className} onClick={this.handleClick}>{this.props.text||'确认'}</div>
         );
     }
 
