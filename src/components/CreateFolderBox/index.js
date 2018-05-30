@@ -14,8 +14,25 @@ class CreateFolderBox extends Component {
         closeMarkCallBack: propTypes.func
     }
 
+    state = {
+        folderName:''
+    }
+    handleChange = (event) =>{
+        if(event.target.value){
+            this.refs.input.style.borderColor = '#ccc'
+        }
+        this.setState({
+            folderName: event.target.value
+        })
+    }
+
     confirm = () =>{
-       console.log("确认")
+       if(!this.state.folderName.toString()){
+            this.refs.input.style.borderColor = '#f44336'
+            return false
+       }
+       console.log(this.state.folderName)
+       
     }
 
     cencel = () =>{
@@ -35,7 +52,7 @@ class CreateFolderBox extends Component {
                     <ul>
                         <li>
                             <span>文件夹名称</span>
-                            <input type="text" placeholder="请输入文件名称"/>
+                            <input type="text" placeholder="请输入文件名称" value={this.state.folderName} onChange={this.handleChange} ref='input'/>
                         </li>
                         <li>
                             <span>文件夹归属</span>
