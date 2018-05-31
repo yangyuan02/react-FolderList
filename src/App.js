@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import {connect} from 'react-redux'
+
+import {list} from './store/FolderList/action'
+
 import TouchableOpacity from './components/TouchableOpacity/index'
 
 import FolderList from './components/FolderList/index'
@@ -39,4 +43,8 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect(state =>({
+  formData:state.formData
+}),{
+  list
+})(App);

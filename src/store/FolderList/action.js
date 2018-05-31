@@ -1,8 +1,8 @@
-import * as pro from './action-type'
+import * as FolderList from './action-type'
 
 export const list = data => {
     return {
-        type: pro.LIST,
+        type: FolderList.LIST,
         data
     }
 }
