@@ -36,8 +36,10 @@ class CreateFolderBox extends Component {
     }
 
     cencel = () =>{
+        this.setState({
+            folderName: ''
+        })
         this.props.closeMarkCallBack()
-        console.log("取消")
     }
 
     render(){
