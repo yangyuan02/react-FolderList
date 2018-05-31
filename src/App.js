@@ -4,7 +4,7 @@ import {connect} from 'react-redux'
 
 import PropTypes from 'prop-types';
 
-import {list,getData} from './store/FolderList/action'
+import {add,getData} from './store/FolderList/action'
 
 import TouchableOpacity from './components/TouchableOpacity/index'
 
@@ -19,7 +19,7 @@ import './reset.css'
 class App extends Component {
   static propTypes = {
     proData: PropTypes.object.isRequired,
-    list: PropTypes.func.isRequired,
+    add: PropTypes.func.isRequired,
     getData: PropTypes.func.isRequired
   }
   state = {
@@ -27,7 +27,6 @@ class App extends Component {
   }
 
   add = () => {
-    console.log(this.props.proData.list)
     this.setState({
       showMark : !this.state.showMark
     })
@@ -56,6 +55,6 @@ class App extends Component {
 export default connect(state =>({
   proData:state.proData
 }),{
-  list,
+  add,
   getData
 })(App);

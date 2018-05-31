@@ -2,9 +2,10 @@ import * as FolderList from './action-type'
 
 import { tree } from '../../data.js'
 
-export const list = data => {
+export const add = data => {
+    console.log(data)
     return {
-        type: FolderList.LIST,
+        type: FolderList.ADD,
         data
     }
 }

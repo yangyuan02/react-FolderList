@@ -11,7 +11,8 @@ class FolderList extends Component {
   state = {
     visible : this.props.list.status
   }
-  toggle = () => {
+  toggle = index => {
+    console.log(index)
     this.setState({
       visible : !this.state.visible
     })
@@ -34,7 +35,7 @@ class FolderList extends Component {
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle}>
+          <div className="title" onClick={this.toggle.bind(this,1)}>
             <i className="iconfont">&#xe619;</i>
             <span>{this.props.list.title}</span>
           </div>
