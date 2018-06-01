@@ -43,8 +43,11 @@ class CreateFolderBox extends Component {
            children:[],
            status:false
        }
+       this.props.proData.list.children.push(obj)
        
-       this.props.add(obj)
+       this.props.add(this.props.proData)
+       
+       this.cencel()
     }
 
     cencel = () =>{
@@ -83,7 +86,6 @@ class CreateFolderBox extends Component {
     }
 
 }
-
 export default connect(state =>({
     proData:state.proData
   }),{

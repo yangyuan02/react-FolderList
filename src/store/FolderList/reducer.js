@@ -11,7 +11,7 @@ export const proData = (state = defaultState , action = {}) => {
         case FolderList.GETDATA:
             return {...state,...action}
         case FolderList.ADD:
-           console.log(state)
+           return {...state,...action.data}
         default:
             return state
     }
