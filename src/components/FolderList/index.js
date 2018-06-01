@@ -11,8 +11,8 @@ class FolderList extends Component {
   state = {
     visible : this.props.list.status
   }
-  toggle = index => {
-    console.log(index)
+  toggle = data => {
+    window.localStorage.setItem("active",JSON.stringify(data))
     this.setState({
       visible : !this.state.visible
     })
@@ -35,7 +35,7 @@ class FolderList extends Component {
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle.bind(this,1)}>
+          <div className="title" onClick={this.toggle.bind(this,this.props.list)} data-id={this.props.list.dataId}>
             <i className="iconfont">&#xe619;</i>
             <span>{this.props.list.title}</span>
           </div>

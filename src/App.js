@@ -23,12 +23,22 @@ class App extends Component {
     getData: PropTypes.func.isRequired
   }
   state = {
-    showMark : false
+    showMark : false,
+    active:{
+      title:'',
+    }
   }
 
   add = () => {
+    var active = JSON.parse(window.localStorage.getItem("active"))
+    if(!active){
+      return false
+    }
     this.setState({
-      showMark : !this.state.showMark
+      showMark : !this.state.showMark,
+      active:{
+        title:active.title
+      }
     })
   }
 
@@ -46,7 +56,7 @@ class App extends Component {
           <FolderList list={this.props.proData.list} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} />
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active.title}/>
       </div>
     );
   }
