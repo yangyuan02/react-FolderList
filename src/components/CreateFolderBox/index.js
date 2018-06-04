@@ -18,7 +18,7 @@ class CreateFolderBox extends Component {
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
         add:propTypes.func.isRequired,
-        text:propTypes.string.isRequired
+        text:propTypes.object.isRequired
     }
 
     state = {
@@ -44,7 +44,9 @@ class CreateFolderBox extends Component {
            children:[],
            status:false
        }
+       console.log(this.props.text.dataId)
        
+
        this.props.proData.list.children.push(obj)
 
        this.props.add(this.props.proData)
@@ -75,7 +77,7 @@ class CreateFolderBox extends Component {
                         </li>
                         <li>
                             <span>文件夹归属</span>
-                            <input type="text" placeholder="文件夹归属" placeholder={this.props.text}/>
+                            <input type="text" placeholder="文件夹归属" placeholder={this.props.text.title}/>
                         </li>
                     </ul>
                 </div>

@@ -26,6 +26,7 @@ class App extends Component {
     showMark : false,
     active:{
       title:'',
+      dataId:''
     }
   }
 
@@ -37,7 +38,8 @@ class App extends Component {
     this.setState({
       showMark : !this.state.showMark,
       active:{
-        title:active.title
+        title:active.title,
+        dataId:active.dataId
       }
     })
   }
@@ -56,7 +58,7 @@ class App extends Component {
           <FolderList list={this.props.proData.list} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active.title}/>
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active}/>
       </div>
     );
   }
