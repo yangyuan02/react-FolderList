@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import PropTypes from 'prop-types';
 
-import {add,getData} from './store/FolderList/action'
+import { denormalize, schema, normalize } from 'normalizr';
+
+import { add, getData } from './store/FolderList/action'
 
 import TouchableOpacity from './components/TouchableOpacity/index'
 
@@ -14,7 +16,24 @@ import MarkTemplate from './components/MarkTemplate/index'
 
 import CreateFolderBox from './components/CreateFolderBox/index'
 
+import { tree } from './data.js'
+
 import './reset.css'
+
+
+const data = tree;
+
+const node = new schema.Entity('node', {}, { idAttribute: 'dataId' });
+
+const nodeArray = new schema.Entity('nodes', { children: [node] }, { idAttribute: 'dataId' });
+
+
+
+
+const normalizedData = normalize(data, nodeArray);
+
+console.log(normalizedData)
+
 
 class App extends Component {
   static propTypes = {
@@ -23,29 +42,29 @@ class App extends Component {
     getData: PropTypes.func.isRequired
   }
   state = {
-    showMark : false,
-    active:{
-      title:'',
-      dataId:''
+    showMark: false,
+    active: {
+      title: '',
+      dataId: ''
     }
   }
 
   add = () => {
     var active = JSON.parse(window.localStorage.getItem("active"))
-    if(!active){
+    if (!active) {
       return false
     }
     this.setState({
-      showMark : !this.state.showMark,
-      active:{
-        title:active.title,
-        dataId:active.dataId
+      showMark: !this.state.showMark,
+      active: {
+        title: active.title,
+        dataId: active.dataId
       }
     })
   }
 
-  componentDidMount(){
-    if(!this.props.proData.length){
+  componentDidMount() {
+    if (!this.props.proData.length) {
       this.props.getData()
     }
   }
@@ -58,15 +77,15 @@ class App extends Component {
           <FolderList list={this.props.proData.list} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active}/>
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active} />
       </div>
     );
   }
 }
 
-export default connect(state =>({
-  proData:state.proData
-}),{
-  add,
-  getData
-})(App);
+export default connect(state => ({
+  proData: state.proData
+}), {
+    add,
+    getData
+  })(App);

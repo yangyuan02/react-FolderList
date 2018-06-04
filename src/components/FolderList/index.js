@@ -12,6 +12,7 @@ class FolderList extends Component {
     visible : this.props.list.status
   }
   toggle = data => {
+    console.log(data)
     window.localStorage.setItem("active",JSON.stringify(data))
     this.setState({
       visible : !this.state.visible
