@@ -9,6 +9,7 @@ class FolderList extends Component {
     list: propTypes.object
   }
   state = {
+    //
     visible : this.props.list.status
   }
   toggle = data => {
