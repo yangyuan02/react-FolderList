@@ -20,17 +20,13 @@ import { tree } from './data.js'
 
 import './reset.css'
 
-
 const data = tree;
 
 const node = new schema.Entity('node', {}, { idAttribute: 'dataId' });
 
-const nodeArray = new schema.Entity('nodes', { children: [node] }, { idAttribute: 'dataId' });
+node.define({ children: [node] });
 
-
-
-
-const normalizedData = normalize(data, nodeArray);
+const normalizedData = normalize(data, node);
 
 console.log(normalizedData)
 

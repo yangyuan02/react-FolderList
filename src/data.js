@@ -15,6 +15,7 @@ export const tree = {
                     status: true,
                     children: [
                         {
+                            dataId:'1-1-1-1',
                             title: "父级1-子级1-子子子1",
                             status: false
                         }
