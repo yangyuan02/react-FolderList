@@ -25,7 +25,7 @@ class App extends Component {
       <div className="box">
         <TouchableOpacity clickCallBack={this.add} text="创建" className="add" />
         <div className="folderList">
-          <FolderList list={"1"} />
+          <FolderList id={"1"} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
         <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} />

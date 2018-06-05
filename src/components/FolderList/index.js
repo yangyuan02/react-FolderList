@@ -1,20 +1,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import actions from '../../store/FolderList/action'
-import propTypes from 'prop-types'
+
 
 import './index.less'
 
 class FolderList extends Component {
-  static propTypes = {
-    list: propTypes.string
+
+
+    state = {
+    visible : this.props.id.status
   }
-  state = {
-    //
-    visible : this.props.list.status
-  }
-  toggle = data => {
-    window.localStorage.setItem("active",JSON.stringify(data))
+  toggle = () => {
     this.setState({
       visible : !this.state.visible
     })
@@ -22,7 +19,7 @@ class FolderList extends Component {
 
   renderChild = childId => {
 
-    return <ConnectedNode list={childId} key={childId} />
+    return <ConnectedNode id={childId} key={childId} />
     
   }
 
@@ -36,7 +33,7 @@ class FolderList extends Component {
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle.bind(this,this.props.list)} data-id={this.props.list.dataId}>
+          <div className="title" onClick={this.toggle}>
             <i className="iconfont">&#xe619;</i>
             <span>{title}</span>
           </div>
@@ -52,8 +49,8 @@ class FolderList extends Component {
 
 function mapStateToProps(state, ownProps) {
 
-  return state[ownProps.list]
-  
+  return state[ownProps.id]
+
 }
 
 const ConnectedNode = connect(mapStateToProps, actions)(FolderList)
