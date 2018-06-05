@@ -19,11 +19,11 @@ class App extends Component {
     parentObj:{}
   }
 
-  add = (index) => {
-    console.log(this.props[1])
+  add = () => {
+    var index = this.props.index?this.props.index:1
     this.setState({
       showMark: !this.state.showMark,
-      parentObj : this.props[1]
+      parentObj : this.props[index]
     })
 
   }

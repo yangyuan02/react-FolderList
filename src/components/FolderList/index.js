@@ -12,8 +12,8 @@ class FolderList extends Component {
     visible: this.props.id.status
   }
   toggle = (id) => {
-    console.log(id)
-
+    const {select} = this.props
+    select(id)
     this.setState({
       visible: !this.state.visible
     })
