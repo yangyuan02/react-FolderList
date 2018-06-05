@@ -7,7 +7,7 @@ import './index.less'
 
 class FolderList extends Component {
   static propTypes = {
-    list: propTypes.number
+    list: propTypes.string
   }
   state = {
     //
@@ -19,6 +19,12 @@ class FolderList extends Component {
       visible : !this.state.visible
     })
   }
+
+  renderChild = childId => {
+    // const { list } = this.props
+    return <ConnectedNode list={childId} key={childId} />
+  }
+
 
   nodes = (data) =>{ 
     let childNode;
@@ -34,7 +40,11 @@ class FolderList extends Component {
     var style = {
       display:this.state.visible?'none':'block'
     }
-    console.log(this.props)
+
+    const { children } = this.props
+    
+    console.log(children)
+
     return (
       <ul>
         <li>
@@ -43,7 +53,7 @@ class FolderList extends Component {
             <span>{this.props.list.title}</span>
           </div>
           <div className="childnode" style={style}>
-            {/* {this.nodes(this.props.list)} */}
+            {children.map(this.renderChild)}
           </div>
         </li>
       </ul>
@@ -53,7 +63,6 @@ class FolderList extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  console.log(state)
   return state[ownProps.list]
 }
 
