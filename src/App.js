@@ -28,14 +28,12 @@ node.define({ children: [node] });
 
 const normalizedData = normalize(data, node);
 
-console.log(normalizedData)
-
 
 class App extends Component {
   static propTypes = {
-    proData: PropTypes.object.isRequired,
-    add: PropTypes.func.isRequired,
-    getData: PropTypes.func.isRequired
+    // proData: PropTypes.object.isRequired,
+    // add: PropTypes.func.isRequired,
+    // getData: PropTypes.func.isRequired
   }
   state = {
     showMark: false,
@@ -59,18 +57,18 @@ class App extends Component {
     })
   }
 
-  componentDidMount() {
-    if (!this.props.proData.length) {
-      this.props.getData()
-    }
-  }
+  // componentDidMount() {
+  //   if (!this.props.proData.length) {
+  //     this.props.getData()
+  //   }
+  // }
 
   render() {
     return (
       <div className="box">
         <TouchableOpacity clickCallBack={this.add} text="创建" className="add" />
         <div className="folderList">
-          <FolderList list={this.props.proData.list} />
+          <FolderList list={1} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
         <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} text={this.state.active} />
@@ -79,9 +77,4 @@ class App extends Component {
   }
 }
 
-export default connect(state => ({
-  proData: state.proData
-}), {
-    add,
-    getData
-  })(App);
+export default App

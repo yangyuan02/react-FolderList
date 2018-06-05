@@ -1,17 +1,17 @@
-import * as FolderList from './action-type'
+// import * as FolderList from './action-type'
 
-import { tree } from '../../data.js'
+// import { tree } from '../../data.js'
 
-export const add = data => {
-    return {
-        type: FolderList.ADD,
-        data
-    }
-}
+// export const add = data => {
+//     return {
+//         type: FolderList.ADD,
+//         data
+//     }
+// }
 
-export const getData = data => {
-    return {
-        type: FolderList.GETDATA,
-        list:tree
-    }
-}
+// export const getData = data => {
+//     return {
+//         type: FolderList.GETDATA,
+//         list:tree
+//     }
+// }

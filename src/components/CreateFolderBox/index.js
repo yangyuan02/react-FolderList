@@ -14,10 +14,10 @@ import './index.less'
 class CreateFolderBox extends Component {
     
     static propTypes = {
-        proData: propTypes.object.isRequired,
+        // proData: propTypes.object.isRequired,
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
-        add:propTypes.func.isRequired,
+        // add:propTypes.func.isRequired,
         text:propTypes.object.isRequired
     }
 
@@ -93,5 +93,5 @@ class CreateFolderBox extends Component {
 export default connect(state =>({
     proData:state.proData
   }),{
-    add
+    // add
   })(CreateFolderBox);
