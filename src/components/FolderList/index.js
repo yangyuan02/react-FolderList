@@ -32,7 +32,7 @@ class FolderList extends Component {
     }
 
     const { title,children } = this.props
-    console.log(this.props)
+
     return (
       <ul>
         <li>
@@ -51,7 +51,9 @@ class FolderList extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
+
   return state[ownProps.list]
+  
 }
 
 const ConnectedNode = connect(mapStateToProps, actions)(FolderList)
