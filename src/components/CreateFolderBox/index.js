@@ -58,7 +58,7 @@ class CreateFolderBox extends Component {
                         </li>
                         <li>
                             <span>文件夹归属</span>
-                            <input type="text" placeholder="文件夹归属" placeholder={this.props.text.title}/>
+                            <input type="text" placeholder="文件夹归属" />
                         </li>
                     </ul>
                 </div>
