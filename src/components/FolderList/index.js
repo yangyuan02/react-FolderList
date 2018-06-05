@@ -8,27 +8,27 @@ import './index.less'
 class FolderList extends Component {
 
 
-    state = {
-    visible : this.props.id.status
+  state = {
+    visible: this.props.id.status
   }
   toggle = () => {
     this.setState({
-      visible : !this.state.visible
+      visible: !this.state.visible
     })
   }
 
   renderChild = childId => {
 
     return <ConnectedNode id={childId} key={childId} />
-    
+
   }
 
   render() {
     var style = {
-      display:this.state.visible?'none':'block'
+      display: this.state.visible ? 'block' : 'none'
     }
 
-    const { title,children } = this.props
+    const { title, children } = this.props
 
     return (
       <ul>
