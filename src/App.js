@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux'
+
+import * as actions from './store/FolderList/action'
+
 import TouchableOpacity from './components/TouchableOpacity/index'
 
 import FolderList from './components/FolderList/index'
@@ -11,13 +15,17 @@ import CreateFolderBox from './components/CreateFolderBox/index'
 class App extends Component {
 
   state = {
-    showMark: false
+    showMark: false,
+    parentObj:{}
   }
 
-  add = () => {
+  add = (index) => {
+    console.log(this.props[1])
     this.setState({
-      showMark: !this.state.showMark
+      showMark: !this.state.showMark,
+      parentObj : this.props[1]
     })
+
   }
 
   render() {
@@ -28,10 +36,16 @@ class App extends Component {
           <FolderList id={"1"} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} />
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} parentObj={this.state.parentObj}/>
       </div>
     );
   }
 }
 
-export default App
+function mapStateToProps(state, ownProps) {
+
+  return state
+
+}
+export default connect(mapStateToProps, actions)(App)
+

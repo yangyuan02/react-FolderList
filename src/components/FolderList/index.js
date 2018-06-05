@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import actions from '../../store/FolderList/action'
+import * as actions from '../../store/FolderList/action'
 
 
 import './index.less'
@@ -11,7 +11,9 @@ class FolderList extends Component {
   state = {
     visible: this.props.id.status
   }
-  toggle = () => {
+  toggle = (id) => {
+    console.log(id)
+
     this.setState({
       visible: !this.state.visible
     })
@@ -34,7 +36,7 @@ class FolderList extends Component {
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle} data-id={dataId}>
+          <div className="title" onClick={this.toggle.bind(this,dataId)} data-id={dataId}>
             <i className="iconfont">&#xe619;</i>
             <span>{title}</span>
           </div>

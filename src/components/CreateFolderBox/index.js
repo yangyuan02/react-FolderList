@@ -11,6 +11,7 @@ class CreateFolderBox extends Component {
     static propTypes = {
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
+        parentObj:propTypes.object
     }
 
     state = {
@@ -58,7 +59,7 @@ class CreateFolderBox extends Component {
                         </li>
                         <li>
                             <span>文件夹归属</span>
-                            <input type="text" placeholder="文件夹归属" />
+                            <input type="text"  placeholder={this.props.parentObj.title}/>
                         </li>
                     </ul>
                 </div>
