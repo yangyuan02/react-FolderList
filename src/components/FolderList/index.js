@@ -41,16 +41,14 @@ class FolderList extends Component {
       display:this.state.visible?'none':'block'
     }
 
-    const { children } = this.props
-    
-    console.log(children)
-
+    const { title,children } = this.props
+    console.log(this.props)
     return (
       <ul>
         <li>
           <div className="title" onClick={this.toggle.bind(this,this.props.list)} data-id={this.props.list.dataId}>
             <i className="iconfont">&#xe619;</i>
-            <span>{this.props.list.title}</span>
+            <span>{title}</span>
           </div>
           <div className="childnode" style={style}>
             {children.map(this.renderChild)}
