@@ -1,12 +1,12 @@
-import {createStore, combineReducers, applyMiddleware} from 'redux'
+// import {createStore, combineReducers, applyMiddleware} from 'redux'
 
-import thunk from 'redux-thunk'
+// import thunk from 'redux-thunk'
 
-import * as FolderList from './FolderList/reducer'
+// import * as FolderList from './FolderList/reducer'
 
-let store  = createStore(
-    combineReducers({...FolderList}),
-    applyMiddleware(thunk)
-)
+// let store  = createStore(
+//     combineReducers({...FolderList}),
+//     applyMiddleware(thunk)
+// )
 
-export default store
+// export default store

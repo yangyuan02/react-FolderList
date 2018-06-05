@@ -21,19 +21,9 @@ class FolderList extends Component {
   }
 
   renderChild = childId => {
-    // const { list } = this.props
+
     return <ConnectedNode list={childId} key={childId} />
-  }
-
-
-  nodes = (data) =>{ 
-    let childNode;
-    if(data.status){
-      childNode = data.children.map((node,index) => {
-        return <ConnectedNode list={node} key={index} />
-      })
-    }
-    return childNode
+    
   }
 
   render() {

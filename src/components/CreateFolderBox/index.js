@@ -1,24 +1,16 @@
 import React, { Component } from 'react';
 
-import {connect} from 'react-redux'
-
 import propTypes from 'prop-types'
-
-import {add} from '../../store/FolderList/action'
 
 import TouchableOpacity from '../TouchableOpacity/index';
 
 import './index.less'
 
-
 class CreateFolderBox extends Component {
     
     static propTypes = {
-        // proData: propTypes.object.isRequired,
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
-        // add:propTypes.func.isRequired,
-        text:propTypes.object.isRequired
     }
 
     state = {
@@ -39,18 +31,7 @@ class CreateFolderBox extends Component {
             this.refs.input.style.borderColor = '#f44336'
             return false
        }
-       let obj = {
-           title:this.state.folderName,
-           children:[],
-           status:false
-       }
-       console.log(this.props.text.dataId)
-       
 
-       this.props.proData.list.children.push(obj)
-
-       this.props.add(this.props.proData)
-       
        this.cencel()
     }
 
@@ -90,8 +71,4 @@ class CreateFolderBox extends Component {
     }
 
 }
-export default connect(state =>({
-    proData:state.proData
-  }),{
-    // add
-  })(CreateFolderBox);
+export default CreateFolderBox

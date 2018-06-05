@@ -1,15 +1,18 @@
 import React from 'react';
+
 import ReactDOM from 'react-dom';
+
 import {Provider} from 'react-redux'
 
 import {createStore} from 'redux'
 
 import App from './App';
-// import store from './store/store';
 
 import reducer from './store/FolderList/reducer'
 
 import registerServiceWorker from './registerServiceWorker';
+
+import './reset.css'
 
 const tree = {
     "1": {
