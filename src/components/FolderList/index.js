@@ -24,16 +24,17 @@ class FolderList extends Component {
   }
 
   render() {
+    
     var style = {
       display: this.state.visible ? 'block' : 'none'
     }
 
-    const { title, children } = this.props
+    const { title, children ,dataId} = this.props
 
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle}>
+          <div className="title" onClick={this.toggle} data-id={dataId}>
             <i className="iconfont">&#xe619;</i>
             <span>{title}</span>
           </div>
