@@ -56,11 +56,11 @@ class CreateFolderBox extends Component {
         return (
             this.props.showMark && <div className="createFolderBox_container">
                 <div className="header">
-                    <span>{this.props.floderType==0?'创建文件夹':'修改文件夹'}</span>
+                    <span>{this.props.floderType===0?'创建文件夹':'修改文件夹'}</span>
                     <i className="iconfont" onClick={this.cencel}>&#xe607;</i>
                 </div>
                 <div className="dialogContent">
-                    {this.props.floderType==0&&
+                    {this.props.floderType===0&&
                         <ul>
                             <li>
                                 <span>文件夹名称</span>
@@ -73,7 +73,7 @@ class CreateFolderBox extends Component {
                         </ul>
                     }
                     {
-                        this.props.floderType==1&&
+                        this.props.floderType===1&&
                         <ul>
                             <li>
                                 <span>文件夹名称</span>

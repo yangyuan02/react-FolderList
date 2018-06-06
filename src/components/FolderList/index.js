@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
+
+import propTypes from 'prop-types'
+
 import { connect } from 'react-redux'
+
 import * as actions from '../../store/FolderList/action'
 
 
@@ -7,13 +11,12 @@ import './index.less'
 
 class FolderList extends Component {
 
-
   state = {
     visible: this.props.id.status
   }
   toggle = (id) => {
     console.log('toggle')
-    const {select} = this.props
+    const { select } = this.props
     select(id)
     this.setState({
       visible: !this.state.visible
@@ -21,35 +24,35 @@ class FolderList extends Component {
   }
 
   edit = (event) => {
-    console.log(this.props)
+    console.log('edit')
     event.stopPropagation()
-    const {showCallBack,select ,dataId} = this.props
+    const { select, dataId ,showCallBack } = this.props
     select(dataId)
     setTimeout(()=>{
       showCallBack(1)
     },0)
-    
-    
+
+
   }
 
   renderChild = childId => {
 
-    return <ConnectedNode id={childId} key={childId} />
+    return <ConnectedNode id={childId} key={childId} showCallBack={this.props.showCallBack}/>
 
   }
 
   render() {
-    
+
     var style = {
       display: this.state.visible ? 'block' : 'none'
     }
 
-    const { title, children ,dataId} = this.props
+    const { title, children, dataId } = this.props
 
     return (
       <ul>
         <li>
-          <div className="title" onClick={this.toggle.bind(this,dataId)} data-id={dataId}>
+          <div className="title" onClick={this.toggle.bind(this, dataId)} data-id={dataId}>
             <div>
               <i className="iconfont">&#xe619;</i>
               <span>{title}</span>
