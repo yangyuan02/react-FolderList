@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-import propTypes from 'prop-types'
-
 import { connect } from 'react-redux'
 
 import * as actions from '../../store/FolderList/action'

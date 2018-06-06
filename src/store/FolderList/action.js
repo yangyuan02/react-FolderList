@@ -22,9 +22,10 @@ export const del = index => {
     }
 }
 
-export const edit = index => {
+export const edit = data => {
+    console.log(data)
     return {
         type: FolderList.EDIT,
-        index
+        data
     }
 }

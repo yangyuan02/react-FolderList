@@ -24,7 +24,6 @@ class CreateFolderBox extends Component {
     // }
 
     handleChange = (event) => {
-        console.log(this.props.floderType)
         if (event.target.value) {
             this.refs.input.style.borderColor = '#ccc'
         }
@@ -46,13 +45,18 @@ class CreateFolderBox extends Component {
     }
     confirm = () => {
 
-        const { add } = this.props
+        const { add ,edit } = this.props
 
         if (!this.state.folderName.toString()) {
             this.refs.input.style.borderColor = '#f44336'
             return false
         }
-        add(this.state.folderName)
+        if(this.props.floderType==0){
+            add(this.state.folderName)
+        }else{
+            edit(this.state.folderName)
+        }
+        
         this.cencel()
     }
 

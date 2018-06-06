@@ -25,7 +25,11 @@ export default (state = {}, action) => {
 
     }
     case FolderList.EDIT:{
-      console.log(action)
+      
+      return {...state , [state.index]:{
+        ...state[state.index],
+        title:action.data
+      } }
     }
     default:
       return state
