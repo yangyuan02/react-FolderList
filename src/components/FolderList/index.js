@@ -12,11 +12,17 @@ class FolderList extends Component {
     visible: this.props.id.status
   }
   toggle = (id) => {
+    console.log('toggle')
     const {select} = this.props
     select(id)
     this.setState({
       visible: !this.state.visible
     })
+  }
+
+  edit = (event) => {
+    console.log(this.props)
+    event.stopPropagation()
   }
 
   renderChild = childId => {
@@ -43,6 +49,7 @@ class FolderList extends Component {
             </div>
             <div className="del">
               <i className="iconfont">&#xe607;</i>
+              <i className="iconfont" onClick={this.edit}>&#xe609;</i>
             </div>
           </div>
           <div className="childnode" style={style}>
@@ -57,7 +64,6 @@ class FolderList extends Component {
 
 function mapStateToProps(state, ownProps) {
 
-  console.log(state)
   return state[ownProps.id]
 
 }

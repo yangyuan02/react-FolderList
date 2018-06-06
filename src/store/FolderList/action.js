@@ -21,3 +21,10 @@ export const del = index => {
         index
     }
 }
+
+export const edit = index => {
+    return {
+        type: FolderList.EDIT,
+        index
+    }
+}

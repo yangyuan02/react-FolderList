@@ -6,7 +6,7 @@ export default (state = {}, action) => {
       return { ...state, ...{ index: action.index } }
     case FolderList.ADD:
       var len = state[state.index].children.length
-      const name = len > 0? (state[state.index].children[len-1] + '-1'):(state.index + '-1')
+      const name = len > 0 ? (state[state.index].children[len - 1] + '-1') : (state.index + '-1')
       const newObj = {
         children: [],
         dataId: name,
@@ -21,8 +21,11 @@ export default (state = {}, action) => {
         [name]: newObj
       }
       return newState;
-    case FolderList.DELETE:{
-      
+    case FolderList.DELETE: {
+
+    }
+    case FolderList.EDIT:{
+      console.log(action)
     }
     default:
       return state
