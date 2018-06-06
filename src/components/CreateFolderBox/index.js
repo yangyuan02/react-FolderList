@@ -19,11 +19,12 @@ class CreateFolderBox extends Component {
         floderType:propTypes.number
     }
 
-    state = {
-        folderName: ''
-    }
+    // state = {
+    //     folderName: this.props.floderType==1?this.props.parentObj.title : ""
+    // }
 
     handleChange = (event) => {
+        console.log(this.props.floderType)
         if (event.target.value) {
             this.refs.input.style.borderColor = '#ccc'
         }
@@ -31,7 +32,18 @@ class CreateFolderBox extends Component {
             folderName: event.target.value
         })
     }
-
+    componentWillReceiveProps(nextProps){
+        if(nextProps.floderType===0){
+            this.setState({
+                folderName:''
+            })
+        }else{
+            this.setState({
+                folderName:nextProps.parentObj.title
+            })
+        }
+        
+    }
     confirm = () => {
 
         const { add } = this.props

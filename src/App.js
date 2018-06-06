@@ -38,10 +38,10 @@ class App extends Component {
       <div className="box">
         <TouchableOpacity clickCallBack={this.add.bind(this,0)} text="创建" className="add" />
         <div className="folderList">
-          <FolderList id={"1"} showCallBack={this.add} />
+          <FolderList id={"1"} showCallBack={this.add.bind(this)} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add} parentObj={this.state.parentObj} floderType={this.state.floderType}/>
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add.bind(this)} parentObj={this.state.parentObj} floderType={this.state.floderType}/>
       </div>
     );
   }
