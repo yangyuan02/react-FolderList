@@ -23,6 +23,13 @@ class FolderList extends Component {
   edit = (event) => {
     console.log(this.props)
     event.stopPropagation()
+    const {showCallBack,select ,dataId} = this.props
+    select(dataId)
+    setTimeout(()=>{
+      showCallBack(1)
+    },0)
+    
+    
   }
 
   renderChild = childId => {
