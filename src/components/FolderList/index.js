@@ -37,8 +37,13 @@ class FolderList extends Component {
       <ul>
         <li>
           <div className="title" onClick={this.toggle.bind(this,dataId)} data-id={dataId}>
-            <i className="iconfont">&#xe619;</i>
-            <span>{title}</span>
+            <div>
+              <i className="iconfont">&#xe619;</i>
+              <span>{title}</span>
+            </div>
+            <div className="del">
+              <i className="iconfont">&#xe607;</i>
+            </div>
           </div>
           <div className="childnode" style={style}>
             {children.map(this.renderChild)}
@@ -51,7 +56,8 @@ class FolderList extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-  
+
+  console.log(state)
   return state[ownProps.id]
 
 }

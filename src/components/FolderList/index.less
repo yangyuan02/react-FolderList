@@ -22,7 +22,17 @@
           line-height: 30px;
           border-top: 1px solid #f2f6fd;
           box-sizing: border-box;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
           .title{
+            display: flex;
+            justify-content: space-between;
+            .del{
+              i{
+                cursor: pointer;
+              }
+            }
             &:hover{
               color: #f44336;
             }

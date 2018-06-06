@@ -14,3 +14,10 @@ export const add = data => {
         data
     }
 }
+
+export const del = index => {
+    return {
+        type: FolderList.DELETE,
+        index
+    }
+}
