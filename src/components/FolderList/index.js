@@ -51,7 +51,7 @@ class FolderList extends Component {
 }
 
 function mapStateToProps(state, ownProps) {
-
+  
   return state[ownProps.id]
 
 }

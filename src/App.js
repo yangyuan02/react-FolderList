@@ -20,10 +20,13 @@ class App extends Component {
   }
 
   add = () => {
-    var index = this.props.index?this.props.index:1
+    if(!this.props.index){
+      alert("请选择父级")
+      return false
+    }
     this.setState({
       showMark: !this.state.showMark,
-      parentObj : this.props[index]
+      parentObj : this.props[this.props.index]
     })
 
   }

@@ -1,3 +1,3 @@
 export const SELECT = 'SELECT'
 
-// export const GETDATA = 'GETDATA'
+export const ADD = 'ADD'

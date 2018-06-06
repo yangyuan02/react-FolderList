@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+import { connect } from 'react-redux'
+
+import * as actions from '../../store/FolderList/action'
+
 import propTypes from 'prop-types'
 
 import TouchableOpacity from '../TouchableOpacity/index';
@@ -7,19 +11,19 @@ import TouchableOpacity from '../TouchableOpacity/index';
 import './index.less'
 
 class CreateFolderBox extends Component {
-    
+
     static propTypes = {
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
-        parentObj:propTypes.object
+        parentObj: propTypes.object
     }
 
     state = {
-        folderName:''
+        folderName: ''
     }
 
-    handleChange = (event) =>{
-        if(event.target.value){
+    handleChange = (event) => {
+        if (event.target.value) {
             this.refs.input.style.borderColor = '#ccc'
         }
         this.setState({
@@ -27,26 +31,29 @@ class CreateFolderBox extends Component {
         })
     }
 
-    confirm = () =>{
-       if(!this.state.folderName.toString()){
+    confirm = () => {
+
+        const { add } = this.props
+
+        if (!this.state.folderName.toString()) {
             this.refs.input.style.borderColor = '#f44336'
             return false
-       }
-
-       this.cencel()
+        }
+        add(this.state.folderName)
+        this.cencel()
     }
 
-    cencel = () =>{
+    cencel = () => {
         this.setState({
             folderName: ''
         })
         this.props.closeMarkCallBack()
     }
 
-    render(){
-        
-        return (  
-            this.props.showMark&&<div className="createFolderBox_container">
+    render() {
+
+        return (
+            this.props.showMark && <div className="createFolderBox_container">
                 <div className="header">
                     <span>创建文件夹</span>
                     <i className="iconfont" onClick={this.cencel}>&#xe607;</i>
@@ -55,11 +62,11 @@ class CreateFolderBox extends Component {
                     <ul>
                         <li>
                             <span>文件夹名称</span>
-                            <input type="text" placeholder="请输入文件名称" value={this.state.folderName} onChange={this.handleChange} ref='input'/>
+                            <input type="text" placeholder="请输入文件名称" value={this.state.folderName} onChange={this.handleChange} ref='input' />
                         </li>
                         <li>
                             <span>文件夹归属</span>
-                            <input type="text"  placeholder={this.props.parentObj.title}/>
+                            <input type="text" placeholder={this.props.parentObj.title} />
                         </li>
                     </ul>
                 </div>
@@ -72,4 +79,10 @@ class CreateFolderBox extends Component {
     }
 
 }
-export default CreateFolderBox
+
+function mapStateToProps(state, ownProps) {
+
+    return state
+
+}
+export default connect(mapStateToProps, actions)(CreateFolderBox)
