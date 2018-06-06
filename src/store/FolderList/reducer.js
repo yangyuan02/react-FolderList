@@ -6,7 +6,8 @@ export default (state = {}, action) => {
       return { ...state, ...{ index: action.index } }
     case FolderList.ADD:
       var len = state[state.index].children.length
-      const name = len > 0 ? (state[state.index].children[len - 1] + '-1') : (state.index + '-1')
+      const name = len > 0 ? (state[state.index].children[len - 1] + '-' + parseInt(state[state.index].children[len - 1].substring(state[state.index].children[len - 1].lastIndexOf("-")+1))+1) : (state.index + '-1')
+      console.log(name)
       const newObj = {
         children: [],
         dataId: name,
@@ -25,7 +26,7 @@ export default (state = {}, action) => {
 
     }
     case FolderList.EDIT:{
-      
+
       return {...state , [state.index]:{
         ...state[state.index],
         title:action.data
