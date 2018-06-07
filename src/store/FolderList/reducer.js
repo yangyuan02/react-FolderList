@@ -6,8 +6,8 @@ export default (state = {}, action) => {
       return { ...state, ...{ index: action.index } }
     case FolderList.ADD:
       var len = state[state.index].children.length
-      
-      const name = len > 0 ? (state[state.index].children[len - 1] + '-' + parseInt(state[state.index].children[len - 1].substring(state[state.index].children[len - 1].lastIndexOf("-")+1))+1) : (state.index + '-1')
+
+      const name = len > 0 ? (state[state.index].children[len - 1] + '-' + parseInt(state[state.index].children[len - 1].substring(state[state.index].children[len - 1].lastIndexOf("-") + 1)) + 1) : (state.index + '-1')
       const newObj = {
         children: [],
         dataId: name,
@@ -23,17 +23,43 @@ export default (state = {}, action) => {
       }
       return newState;
     case FolderList.DELETE: {
-      
-      console.log(state[state.index].children)
-      console.log(state)
-      return {...state}
-    }
-    case FolderList.EDIT:{
 
-      return {...state , [state.index]:{
-        ...state[state.index],
-        title:action.data
-      } }
+      const newState = { ...state }
+
+      const newName = []
+
+      function recurs(arr) {
+        for (var i = 0; i < arr.length; i++) {
+          if (newState[arr[i]].children.length > 0) {
+            recurs(newState[arr[i]].children)
+          }
+          newName.push(arr[i])
+        }
+      }
+
+      recurs(state[state.index].children)
+
+      newName.push(state.index)
+
+      console.log(newState)
+
+      for(var i = 0;i<newName.length;i++){
+        delete newState[newName[i]];
+      }
+
+     
+
+
+      return newState
+    }
+    case FolderList.EDIT: {
+
+      return {
+        ...state, [state.index]: {
+          ...state[state.index],
+          title: action.data
+        }
+      }
     }
     default:
       return state

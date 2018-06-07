@@ -51,7 +51,7 @@ class CreateFolderBox extends Component {
             this.refs.input.style.borderColor = '#f44336'
             return false
         }
-        if(this.props.floderType==0){
+        if(this.props.floderType===0){
             add(this.state.folderName)
         }else{
             edit(this.state.folderName)
