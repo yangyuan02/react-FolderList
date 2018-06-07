@@ -12,8 +12,8 @@ class FolderList extends Component {
   state = {
     visible: this.props.id.status
   }
+
   toggle = (id) => {
-    console.log('toggle')
     const { select } = this.props
     select(id)
     this.setState({
@@ -22,16 +22,18 @@ class FolderList extends Component {
   }
 
   edit = (event) => {
-    console.log('edit')
     event.stopPropagation()
     const { select, dataId ,showCallBack } = this.props
     select(dataId)
     setTimeout(()=>{
       showCallBack(1)
     },0)
-
-
   }
+
+  del = (event) => {
+    event.stopPropagation()
+  }
+  
 
   renderChild = childId => {
 
@@ -56,7 +58,7 @@ class FolderList extends Component {
               <span>{title}</span>
             </div>
             <div className="del">
-              <i className="iconfont">&#xe607;</i>
+              <i className="iconfont" onClick={this.del}>&#xe607;</i>
               <i className="iconfont" onClick={this.edit}>&#xe609;</i>
             </div>
           </div>
