@@ -20,7 +20,7 @@ const tree = {
         "status": true,
         "dataId": "0",
         "children": [],
-        "parent":"0"
+        "parentId":"0"
     }
 }
 

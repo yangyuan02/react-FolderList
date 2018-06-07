@@ -67,7 +67,11 @@ class FolderList extends Component {
               <span>{title}</span>
             </div>
             <div className="del">
+            {
+              dataId!=="0"&&
               <i className="iconfont" onClick={this.del}>&#xe607;</i>
+            }
+              
               <i className="iconfont" onClick={this.edit}>&#xe609;</i>
             </div>
           </div>

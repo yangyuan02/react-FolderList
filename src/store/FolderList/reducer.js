@@ -11,6 +11,7 @@ export default (state = {}, action) => {
       const newObj = {
         children: [],
         dataId: name,
+        parentId:state.index,
         title: action.data,
         status: false
       }
@@ -37,14 +38,20 @@ export default (state = {}, action) => {
         }
       }
 
-      recurs(state[state.index].children)
+      recurs(newState[newState.index].children)
 
-      newName.push(state.index)
+      newName.push(newState.index)
+
+      let parentId = newState[newState.index].parentId
+
+      newState[parentId].children.splice(newState[parentId].children.indexOf(newState.index),1)            
 
       for(var i = 0;i<newName.length;i++){
         delete newState[newName[i]];
       }
       
+      console.log(newState)
+
       return newState
     }
     case FolderList.EDIT: {
