@@ -15,85 +15,12 @@ import registerServiceWorker from './registerServiceWorker';
 import './reset.css'
 
 const tree = {
-    "1": {
+    "0": {
         "title": "父级1",
         "status": true,
-        "dataId": "1",
-        "children": [
-            "1-1",
-            "1-2",
-            "1-3"
-        ]
-    },
-    "1-1-1-1": {
-        "dataId": "1-1-1-1",
-        "title": "父级1-子级1-子子子1",
-        "status": false,
-        "children":[]
-    },
-    "1-1-1": {
-        "dataId": "1-1-1",
-        "title": "父级1-子级1-子子级1",
-        "status": true,
-        "children": [
-            "1-1-1-1"
-        ]
-    },
-    "1-1-2": {
-        "dataId": "1-1-2",
-        "title": "父级1-子级1-子子级2",
-        "status": false,
-        "children":[]
-    },
-    "1-1-3": {
-        "dataId": "1-1-3",
-        "title": "父级1-子级1-子子级3",
-        "status": false,
-        "children":[]
-    },
-    "1-1": {
-        "title": "父级1-子级1",
-        "status": true,
-        "dataId": "1-1",
-        "children": [
-            "1-1-1",
-            "1-1-2",
-            "1-1-3"
-        ]
-    },
-    "1-2": {
-        "dataId": "1-2",
-        "title": "父级1-子级1",
-        "status": false,
-        "children":[]
-    },
-    "1-3-1": {
-        "dataId": "1-3-1",
-        "title": "父级1-子级1-子子级1",
-        "status": false,
-        "children":[]
-    },
-    "1-3-2": {
-        "dataId": "1-3-2",
-        "title": "父级1-子级1-子子级2",
-        "status": false,
-        "children":[]
-    },
-    "1-3-3": {
-        "dataId": "1-3-3",
-        "title": "父级1-子级1-子子级3",
-        "status": false,
-        "children":[]
-    },
-    "1-3": {
-        "dataId": "1-3",
-        "title": "父级1-子级2",
-        "status": true,
-        "children": [
-            "1-3-1",
-            "1-3-2",
-            "1-3-3"
-        ]
+        "dataId": "0",
+        "children": [],
+        "parent":"0"
     }
 }
 

@@ -41,15 +41,10 @@ export default (state = {}, action) => {
 
       newName.push(state.index)
 
-      console.log(newState)
-
       for(var i = 0;i<newName.length;i++){
         delete newState[newName[i]];
       }
-
-     
-
-
+      
       return newState
     }
     case FolderList.EDIT: {

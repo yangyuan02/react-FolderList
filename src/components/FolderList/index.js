@@ -44,6 +44,7 @@ class FolderList extends Component {
 
 
   renderChild = childId => {
+    // console.log(childId)
 
     return <ConnectedNode id={childId} key={childId} showCallBack={this.props.showCallBack}/>
 
