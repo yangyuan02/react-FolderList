@@ -1,50 +1,49 @@
-.box{
+.box {
     width: 240px;
-    .add{
-      background: #eee;
-      width: 100px;
-      height: 30px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
+    .add {
+        background: #eee;
+        width: 100px;
+        height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
     }
-    .folderList{
-      ul{
-        width: 100%;
-        i{
-          padding-right: 10px;
+    .folderList {
+        ul {
+            width: 100%;
+            i {
+                padding-right: 10px;
+            }
+            li {
+                width: 100%;
+                height: auto;
+                padding-left: 20px;
+                line-height: 30px;
+                border-top: 1px solid #f2f6fd;
+                box-sizing: border-box;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                .title {
+                    display: flex;
+                    justify-content: space-between;
+                    div {
+                        width: 80%;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+                    .del {
+                        i {
+                            cursor: pointer;
+                        }
+                    }
+                    &:hover {
+                        color: #f44336;
+                    }
+                }
+            }
         }
-        li{
-          width: 100%;
-          height: auto;
-          padding-left: 20px;
-          line-height: 30px;
-          border-top: 1px solid #f2f6fd;
-          box-sizing: border-box;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          .title{
-            display: flex;
-            justify-content: space-between;
-            div{
-              width: 80%;
-              white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
-            }
-            .del{
-              i{
-                cursor: pointer;
-              }
-            }
-            &:hover{
-              color: #f44336;
-            }
-          }
-        }
-      }
     }
-  }
-  
+}

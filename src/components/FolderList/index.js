@@ -23,16 +23,16 @@ class FolderList extends Component {
 
   edit = (event) => {
     event.stopPropagation()
-    const { select, dataId ,showCallBack } = this.props
+    const { select, dataId, showCallBack } = this.props
     select(dataId)
-    setTimeout(()=>{
+    setTimeout(() => {
       showCallBack(1)
-    },0)
+    }, 0)
   }
 
   del = (event) => {
 
-    const { select, dataId ,del } = this.props
+    const { select, dataId, del } = this.props
 
     event.stopPropagation()
 
@@ -46,7 +46,7 @@ class FolderList extends Component {
   renderChild = childId => {
     // console.log(childId)
 
-    return <ConnectedNode id={childId} key={childId} showCallBack={this.props.showCallBack}/>
+    return <ConnectedNode id={childId} key={childId} showCallBack={this.props.showCallBack} />
 
   }
 
@@ -67,11 +67,11 @@ class FolderList extends Component {
               <span>{title}</span>
             </div>
             <div className="del">
-            {
-              dataId!=="0"&&
-              <i className="iconfont" onClick={this.del}>&#xe607;</i>
-            }
-              
+              {
+                dataId !== "0" &&
+                <i className="iconfont" onClick={this.del}>&#xe607;</i>
+              }
+
               <i className="iconfont" onClick={this.edit}>&#xe609;</i>
             </div>
           </div>

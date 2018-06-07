@@ -5,18 +5,18 @@ import propTypes from 'prop-types'
 import './index.less'
 
 class MarkTemplate extends Component {
-    
+
     static propTypes = {
         showMark: propTypes.bool.isRequired
-      }
+    }
 
-    render(){
+    render() {
         var style = {
-            width : document.documentElement.scrollWidth || document.body.scrollWidth + 'px',
-            height:document.documentElement.clientHeight || document.body.clientHeight + 'px',
+            width: document.documentElement.scrollWidth || document.body.scrollWidth + 'px',
+            height: document.documentElement.clientHeight || document.body.clientHeight + 'px',
         }
-        return (  
-            this.props.showMark&&<div className="mark" style={style}></div>
+        return (
+            this.props.showMark && <div className="mark" style={style}></div>
         )
     }
 

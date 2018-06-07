@@ -16,7 +16,7 @@ class CreateFolderBox extends Component {
         showMark: propTypes.bool.isRequired,
         closeMarkCallBack: propTypes.func,
         parentObj: propTypes.object,
-        floderType:propTypes.number
+        floderType: propTypes.number
     }
 
     // state = {
@@ -31,32 +31,32 @@ class CreateFolderBox extends Component {
             folderName: event.target.value
         })
     }
-    componentWillReceiveProps(nextProps){
-        if(nextProps.floderType===0){
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.floderType === 0) {
             this.setState({
-                folderName:''
+                folderName: ''
             })
-        }else{
+        } else {
             this.setState({
-                folderName:nextProps.parentObj.title
+                folderName: nextProps.parentObj.title
             })
         }
-        
+
     }
     confirm = () => {
 
-        const { add ,edit } = this.props
+        const { add, edit } = this.props
 
         if (!this.state.folderName.toString()) {
             this.refs.input.style.borderColor = '#f44336'
             return false
         }
-        if(this.props.floderType===0){
+        if (this.props.floderType === 0) {
             add(this.state.folderName)
-        }else{
+        } else {
             edit(this.state.folderName)
         }
-        
+
         this.cencel()
     }
 
@@ -72,11 +72,11 @@ class CreateFolderBox extends Component {
         return (
             this.props.showMark && <div className="createFolderBox_container">
                 <div className="header">
-                    <span>{this.props.floderType===0?'创建文件夹':'修改文件夹'}</span>
+                    <span>{this.props.floderType === 0 ? '创建文件夹' : '修改文件夹'}</span>
                     <i className="iconfont" onClick={this.cencel}>&#xe607;</i>
                 </div>
                 <div className="dialogContent">
-                    {this.props.floderType===0&&
+                    {this.props.floderType === 0 &&
                         <ul>
                             <li>
                                 <span>文件夹名称</span>
@@ -89,14 +89,14 @@ class CreateFolderBox extends Component {
                         </ul>
                     }
                     {
-                        this.props.floderType===1&&
+                        this.props.floderType === 1 &&
                         <ul>
                             <li>
                                 <span>文件夹名称</span>
                                 <input type="text" placeholder="请输入文件名称" value={this.state.folderName} onChange={this.handleChange} ref='input' />
                             </li>
                         </ul>
-                    }   
+                    }
                 </div>
                 <div className="footer">
                     <TouchableOpacity clickCallBack={this.cencel} text="取消" className="cencel" />

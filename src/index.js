@@ -2,9 +2,9 @@ import React from 'react';
 
 import ReactDOM from 'react-dom';
 
-import {Provider} from 'react-redux'
+import { Provider } from 'react-redux'
 
-import {createStore} from 'redux'
+import { createStore } from 'redux'
 
 import App from './App';
 
@@ -20,7 +20,7 @@ const tree = {
         "status": true,
         "dataId": "0",
         "children": [],
-        "parentId":"0"
+        "parentId": "0"
     }
 }
 
@@ -31,5 +31,5 @@ ReactDOM.render(
         <App />
     </Provider>,
     document.getElementById('root'))
-;
+    ;
 registerServiceWorker();

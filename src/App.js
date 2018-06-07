@@ -16,19 +16,19 @@ class App extends Component {
 
   state = {
     showMark: false,
-    parentObj:{},
-    floderType:0
+    parentObj: {},
+    floderType: 0
   }
 
   add = (floderType) => {
-    if(!this.props.index){
+    if (!this.props.index) {
       alert("请选择父级")
       return false
     }
     this.setState({
       showMark: !this.state.showMark,
-      parentObj : this.props[this.props.index],
-      floderType:floderType
+      parentObj: this.props[this.props.index],
+      floderType: floderType
     })
 
   }
@@ -36,12 +36,12 @@ class App extends Component {
   render() {
     return (
       <div className="box">
-        <TouchableOpacity clickCallBack={this.add.bind(this,0)} text="创建" className="add" />
+        <TouchableOpacity clickCallBack={this.add.bind(this, 0)} text="创建" className="add" />
         <div className="folderList">
           <FolderList id={"0"} showCallBack={this.add.bind(this)} />
         </div>
         <MarkTemplate showMark={this.state.showMark} />
-        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add.bind(this)} parentObj={this.state.parentObj} floderType={this.state.floderType}/>
+        <CreateFolderBox showMark={this.state.showMark} closeMarkCallBack={this.add.bind(this)} parentObj={this.state.parentObj} floderType={this.state.floderType} />
       </div>
     );
   }

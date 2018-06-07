@@ -11,7 +11,7 @@ export default (state = {}, action) => {
       const newObj = {
         children: [],
         dataId: name,
-        parentId:state.index,
+        parentId: state.index,
         title: action.data,
         status: false
       }
@@ -44,12 +44,12 @@ export default (state = {}, action) => {
 
       let parentId = newState[newState.index].parentId
 
-      newState[parentId].children.splice(newState[parentId].children.indexOf(newState.index),1)            
+      newState[parentId].children.splice(newState[parentId].children.indexOf(newState.index), 1)
 
-      for(var i = 0;i<newName.length;i++){
+      for (var i = 0; i < newName.length; i++) {
         delete newState[newName[i]];
       }
-      
+
       console.log(newState)
 
       return newState
