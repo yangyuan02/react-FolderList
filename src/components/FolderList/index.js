@@ -31,9 +31,17 @@ class FolderList extends Component {
   }
 
   del = (event) => {
+
+    const { select, dataId ,del } = this.props
+
     event.stopPropagation()
+
+    select(dataId)
+
+    del()
+
   }
-  
+
 
   renderChild = childId => {
 

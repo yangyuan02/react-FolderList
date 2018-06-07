@@ -15,15 +15,13 @@ export const add = data => {
     }
 }
 
-export const del = index => {
+export const del = () => {
     return {
-        type: FolderList.DELETE,
-        index
+        type: FolderList.DELETE
     }
 }
 
 export const edit = data => {
-    console.log(data)
     return {
         type: FolderList.EDIT,
         data

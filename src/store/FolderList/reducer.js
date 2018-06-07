@@ -23,7 +23,10 @@ export default (state = {}, action) => {
       }
       return newState;
     case FolderList.DELETE: {
-
+      
+      console.log(state[state.index].children)
+      console.log(state)
+      return {...state}
     }
     case FolderList.EDIT:{
 
